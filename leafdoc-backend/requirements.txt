@@ -1,0 +1,16 @@
+# Pin TensorFlow to the EXACT version that produced your .keras files in Colab.
+# The Colab notebook prints the version in section 1; replace this line accordingly.
+# Example after Colab run: tensorflow==2.20.0
+tensorflow==2.20.0
+
+fastapi
+uvicorn[standard]
+python-multipart
+pillow
+numpy
+scikit-learn
+pytest
+httpx
+python-dotenv
+openai
+pydantic
