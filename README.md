@@ -1,4 +1,4 @@
-# LeafDoc — Plant Disease Prediction
+# Farm-Sight-An-Intelligent-Vision-System-for-Crop-Disease-Prediction
 
 Identify plant diseases from a leaf photo using either:
 - **OpenRouter (free AI)** — open-ended, recognizes most plants/conditions
