@@ -1,0 +1,17 @@
+# Colab-side dependencies for training the leafdoc model.
+#
+# IMPORTANT: After your first successful Colab run, run `python -c "import tensorflow; print(tensorflow.__version__)"`
+# inside the Colab notebook and pin the EXACT same version in `leafdoc-backend/requirements.txt`
+# so the locally-loaded `.keras` file matches the runtime that produced it.
+#
+# As of writing, Google Colab ships TensorFlow ~2.20.x with Keras 3.x. Update this file
+# with the version your notebook reports.
+
+tensorflow
+keras
+kaggle
+numpy
+pillow
+scikit-learn
+matplotlib
+tensorflow-datasets
