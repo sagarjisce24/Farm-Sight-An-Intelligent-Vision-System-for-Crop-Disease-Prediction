@@ -1,0 +1,348 @@
+{
+  "_meta": {
+    "version": 1,
+    "note": "Static lookup used by /predict to enrich the model's class output into the rich AnalysisResult shape the frontend expects. Each entry corresponds to one class name in class_indices.json. severity_baseline is in 0-100 and is scaled by model confidence at inference time."
+  },
+  "Apple___Apple_scab": {
+    "description": "Apple scab is a fungal disease caused by Venturia inaequalis. It produces olive-green to brown velvety lesions on leaves and fruit and is the most common apple disease in cool, wet climates.",
+    "symptoms": ["Olive-green to dark brown spots on upper leaf surface", "Lesions becoming corky and cracked on fruit", "Premature leaf drop", "Distorted leaf growth"],
+    "treatment": ["Apply fungicide such as captan or myclobutanil at green tip and repeat every 7-10 days during wet weather", "Remove and destroy fallen leaves to reduce overwintering inoculum", "Prune to improve air circulation"],
+    "prevention": ["Plant scab-resistant cultivars (e.g., Liberty, Enterprise)", "Rake and dispose of fallen leaves each autumn", "Avoid overhead irrigation"],
+    "severity_baseline": 60,
+    "progression": [{"stage": "Early", "timeline": "Days 1-7: small olive lesions on young leaves"}, {"stage": "Mid", "timeline": "Weeks 2-3: lesions enlarge, leaves yellow"}, {"stage": "Late", "timeline": "Week 4+: defoliation and fruit lesions"}],
+    "environmentalFactors": {"temperature": "16-24\u00b0C (cool, wet springs favour infection)", "humidity": "High; leaves wet for 9+ hours", "sunlight": "Full sun aids drying", "watering": "Water at the base; avoid wetting foliage"}
+  },
+  "Apple___Black_rot": {
+    "description": "Black rot is a fungal disease caused by Botryosphaeria obtusa. It causes leaf spots ('frogeye'), branch cankers, and fruit rot.",
+    "symptoms": ["Purple-bordered circular leaf spots that turn brown ('frogeye')", "Sunken brown cankers on branches", "Black, mummified fruit", "Concentric rings on rotting fruit"],
+    "treatment": ["Prune out dead wood and cankers, removing 6 inches below visible damage", "Apply fungicide (captan or thiophanate-methyl) at petal fall and repeat", "Destroy mummified fruits and infected debris"],
+    "prevention": ["Maintain tree vigour with balanced fertilization", "Avoid bark wounds during pruning and harvest", "Sanitize pruning tools between cuts"],
+    "severity_baseline": 65,
+    "progression": [{"stage": "Early", "timeline": "Days 1-7: small purple spots on leaves"}, {"stage": "Mid", "timeline": "Weeks 2-4: cankers form, fruit rot begins"}, {"stage": "Late", "timeline": "Months 1-2: fruit mummifies, branch dieback"}],
+    "environmentalFactors": {"temperature": "20-24\u00b0C optimal", "humidity": "Moderate to high", "sunlight": "Open canopy preferred", "watering": "Avoid waterlogging at base"}
+  },
+  "Apple___Cedar_apple_rust": {
+    "description": "A fungal disease (Gymnosporangium juniperi-virginianae) requiring both apple and cedar/juniper hosts. Causes bright yellow-orange spots on apple leaves and fruit.",
+    "symptoms": ["Bright yellow-orange leaf spots with red border", "Tube-like structures on underside of leaves", "Fruit deformation and lesions", "Premature defoliation"],
+    "treatment": ["Apply fungicide (myclobutanil or mancozeb) starting at pink bud stage", "Remove nearby cedar/juniper galls if possible", "Continue sprays through petal fall"],
+    "prevention": ["Plant rust-resistant apple varieties", "Maintain >2 km from cedar/juniper hosts where feasible", "Prune cedars to remove galls in late winter"],
+    "severity_baseline": 55,
+    "progression": [{"stage": "Early", "timeline": "Days 1-10: small yellow spots after spring rain"}, {"stage": "Mid", "timeline": "Weeks 2-4: spots enlarge, orange tubes form"}, {"stage": "Late", "timeline": "Week 5+: defoliation and fruit damage"}],
+    "environmentalFactors": {"temperature": "10-24\u00b0C in spring", "humidity": "High during spore release", "sunlight": "Direct sun reduces leaf wetness", "watering": "Avoid overhead watering in spring"}
+  },
+  "Apple___healthy": {
+    "description": "The leaf appears healthy. No disease symptoms detected.",
+    "symptoms": [],
+    "treatment": ["No treatment required"],
+    "prevention": ["Continue regular monitoring", "Maintain balanced fertilization", "Prune annually for good air circulation", "Remove fallen leaves in autumn"],
+    "severity_baseline": 0,
+    "progression": [],
+    "environmentalFactors": {"temperature": "15-25\u00b0C", "humidity": "Moderate (50-70%)", "sunlight": "Full sun (6-8 hours/day)", "watering": "1-2 inches per week, deep watering"}
+  },
+  "Blueberry___healthy": {
+    "description": "The blueberry leaf appears healthy.",
+    "symptoms": [],
+    "treatment": ["No treatment required"],
+    "prevention": ["Maintain acidic soil (pH 4.5-5.5)", "Mulch with pine needles or sawdust", "Prune older canes annually", "Net plants to deter birds"],
+    "severity_baseline": 0,
+    "progression": [],
+    "environmentalFactors": {"temperature": "15-25\u00b0C", "humidity": "Moderate", "sunlight": "Full sun", "watering": "1-2 inches per week, consistent moisture"}
+  },
+  "Cherry_(including_sour)___Powdery_mildew": {
+    "description": "A fungal disease (Podosphaera clandestina) producing white powdery growth on cherry leaves and shoots.",
+    "symptoms": ["White powdery patches on leaves and stems", "Distorted, curled leaves", "Stunted shoot growth", "Russeting on fruit"],
+    "treatment": ["Apply sulfur or potassium bicarbonate fungicide at first signs", "Prune affected shoots to improve airflow", "Repeat applications every 7-14 days"],
+    "prevention": ["Plant in full sun with good air movement", "Avoid excess nitrogen fertilization", "Choose resistant varieties where available"],
+    "severity_baseline": 50,
+    "progression": [{"stage": "Early", "timeline": "Days 1-7: small white spots"}, {"stage": "Mid", "timeline": "Weeks 2-3: spreads across leaves and shoots"}, {"stage": "Late", "timeline": "Week 4+: distortion, leaf drop, fruit russeting"}],
+    "environmentalFactors": {"temperature": "20-27\u00b0C", "humidity": "Moderate (favours dry leaves with humid air)", "sunlight": "Full sun reduces severity", "watering": "Drip at base; avoid overhead"}
+  },
+  "Cherry_(including_sour)___healthy": {
+    "description": "The cherry leaf appears healthy.",
+    "symptoms": [],
+    "treatment": ["No treatment required"],
+    "prevention": ["Annual dormant pruning", "Monitor for pests in spring", "Mulch around base", "Water deeply but infrequently"],
+    "severity_baseline": 0,
+    "progression": [],
+    "environmentalFactors": {"temperature": "15-25\u00b0C", "humidity": "Moderate", "sunlight": "Full sun", "watering": "Deep watering 1-2 times per week"}
+  },
+  "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot": {
+    "description": "Gray leaf spot is a fungal disease (Cercospora zeae-maydis) producing rectangular tan lesions on corn leaves, capable of significant yield loss.",
+    "symptoms": ["Small pinpoint lesions that elongate into rectangles", "Tan to gray rectangular lesions parallel to leaf veins", "Lesions merging into large blighted areas", "Lower leaves affected first"],
+    "treatment": ["Apply foliar fungicide (azoxystrobin, propiconazole) at tasseling if disease pressure is high", "Time second application 10-14 days later if conditions warrant"],
+    "prevention": ["Rotate corn with non-host crops (soybean) for 1-2 years", "Bury crop residue with tillage", "Plant resistant hybrids", "Avoid continuous corn"],
+    "severity_baseline": 60,
+    "progression": [{"stage": "Early", "timeline": "Days 1-14: pinpoint lesions on lower leaves"}, {"stage": "Mid", "timeline": "Weeks 3-4: rectangular lesions form"}, {"stage": "Late", "timeline": "Week 5+: severe blighting, premature death"}],
+    "environmentalFactors": {"temperature": "22-30\u00b0C", "humidity": "High (>90% for 12+ hrs)", "sunlight": "Full sun standard for corn", "watering": "Avoid prolonged leaf wetness"}
+  },
+  "Corn_(maize)___Common_rust_": {
+    "description": "Common rust is caused by the fungus Puccinia sorghi. Cinnamon-brown pustules appear on both leaf surfaces.",
+    "symptoms": ["Small cinnamon-brown pustules on both upper and lower leaf surfaces", "Pustules turn dark brown to black as they mature", "Yellow chlorotic flecks around pustules", "In severe cases, leaf death"],
+    "treatment": ["Apply foliar fungicide (azoxystrobin, mancozeb) if rust appears before tasseling", "Generally a fungicide is only economical on susceptible hybrids under heavy pressure"],
+    "prevention": ["Plant rust-resistant hybrids", "Avoid late planting in rust-prone areas", "Scout fields weekly during summer"],
+    "severity_baseline": 45,
+    "progression": [{"stage": "Early", "timeline": "Days 1-7: small flecks"}, {"stage": "Mid", "timeline": "Weeks 2-3: cinnamon pustules erupt"}, {"stage": "Late", "timeline": "Week 4+: black telia form, leaves die"}],
+    "environmentalFactors": {"temperature": "16-25\u00b0C", "humidity": "High (>95%)", "sunlight": "Full sun", "watering": "Limit overhead irrigation if possible"}
+  },
+  "Corn_(maize)___Northern_Leaf_Blight": {
+    "description": "Northern corn leaf blight (Exserohilum turcicum) causes long, cigar-shaped grayish-green lesions on corn leaves.",
+    "symptoms": ["Long elliptical (cigar-shaped) lesions, 2.5-15 cm", "Lesions tan to gray-green, with parallel sides", "Lesions may coalesce, blighting leaves", "Lower leaves affected first"],
+    "treatment": ["Foliar fungicide (azoxystrobin, propiconazole) at early tasseling", "May need a second application 14 days later in heavy pressure"],
+    "prevention": ["Plant resistant hybrids", "Crop rotation away from corn for 1-2 years", "Tillage to bury residue", "Avoid late planting"],
+    "severity_baseline": 60,
+    "progression": [{"stage": "Early", "timeline": "Days 1-10: tan flecks"}, {"stage": "Mid", "timeline": "Weeks 2-3: cigar lesions form"}, {"stage": "Late", "timeline": "Week 4+: leaves blighted"}],
+    "environmentalFactors": {"temperature": "18-27\u00b0C", "humidity": "High; leaf wetness >6 hrs", "sunlight": "Full sun normal", "watering": "Avoid extended canopy moisture"}
+  },
+  "Corn_(maize)___healthy": {
+    "description": "The corn leaf appears healthy.",
+    "symptoms": [],
+    "treatment": ["No treatment required"],
+    "prevention": ["Maintain balanced N-P-K", "Scout weekly during growing season", "Rotate crops yearly"],
+    "severity_baseline": 0,
+    "progression": [],
+    "environmentalFactors": {"temperature": "20-30\u00b0C", "humidity": "Moderate", "sunlight": "Full sun", "watering": "1 inch per week"}
+  },
+  "Grape___Black_rot": {
+    "description": "Black rot of grape (Guignardia bidwellii) is a serious fungal disease that mummifies fruit and causes leaf spots.",
+    "symptoms": ["Tan to brown circular leaf spots with dark borders", "Tiny black dots (pycnidia) within spots", "Fruit rot turning black and mummified", "Cane lesions"],
+    "treatment": ["Apply fungicide (mancozeb, myclobutanil) starting at 2-3 inch shoot growth", "Continue every 10-14 days through veraison", "Remove mummified fruit promptly"],
+    "prevention": ["Remove all mummified berries from canes and ground", "Prune for good airflow", "Avoid overhead irrigation"],
+    "severity_baseline": 70,
+    "progression": [{"stage": "Early", "timeline": "Days 1-14: leaf spots on new growth"}, {"stage": "Mid", "timeline": "Weeks 3-5: berry infection at bloom"}, {"stage": "Late", "timeline": "Week 6+: berries mummify"}],
+    "environmentalFactors": {"temperature": "20-27\u00b0C", "humidity": "High", "sunlight": "Open canopy aids drying", "watering": "Drip irrigation only"}
+  },
+  "Grape___Esca_(Black_Measles)": {
+    "description": "Esca / Black Measles is a complex fungal disease (multiple Phaeoacremonium and Phaeomoniella species) of mature grapevines causing wood decay and leaf/berry symptoms.",
+    "symptoms": ["Tiger-stripe pattern between leaf veins (yellow on white grapes, red on dark)", "Small dark spots on berries ('measles')", "Sudden vine collapse in hot weather (apoplexy)", "Wood necrosis when canes are split"],
+    "treatment": ["No reliable cure once vine is infected; remove and destroy severely affected vines", "Trunk renewal by training a new shoot from below the diseased trunk can sometimes save a vine"],
+    "prevention": ["Use clean planting material", "Make pruning cuts in dry weather and protect with sealant", "Avoid trunk wounds"],
+    "severity_baseline": 75,
+    "progression": [{"stage": "Early", "timeline": "Year 1: latent wood infection"}, {"stage": "Mid", "timeline": "Years 2-3: tiger-stripe leaves appear"}, {"stage": "Late", "timeline": "Year 4+: vine collapse during hot spells"}],
+    "environmentalFactors": {"temperature": "Symptoms peak with summer heat", "humidity": "Variable", "sunlight": "Full sun standard", "watering": "Moderate; water-stressed vines collapse faster"}
+  },
+  "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)": {
+    "description": "Isariopsis leaf spot (Pseudocercospora vitis) causes dark angular spots and premature defoliation on grape leaves.",
+    "symptoms": ["Angular dark brown to black leaf spots", "Spots bounded by leaf veins", "Yellow halos around lesions", "Premature defoliation in heavy infections"],
+    "treatment": ["Apply mancozeb or copper-based fungicide at first symptoms", "Repeat every 10-14 days during wet weather"],
+    "prevention": ["Remove infected leaves and prunings", "Train vines for good air movement", "Avoid wetting foliage during irrigation"],
+    "severity_baseline": 50,
+    "progression": [{"stage": "Early", "timeline": "Days 1-10: small angular spots"}, {"stage": "Mid", "timeline": "Weeks 2-4: spots merge"}, {"stage": "Late", "timeline": "Week 5+: defoliation"}],
+    "environmentalFactors": {"temperature": "20-30\u00b0C", "humidity": "High after rains", "sunlight": "Open canopy preferred", "watering": "Avoid overhead irrigation"}
+  },
+  "Grape___healthy": {
+    "description": "The grape leaf appears healthy.",
+    "symptoms": [],
+    "treatment": ["No treatment required"],
+    "prevention": ["Annual dormant pruning", "Manage canopy for airflow", "Monitor for early disease signs"],
+    "severity_baseline": 0,
+    "progression": [],
+    "environmentalFactors": {"temperature": "20-30\u00b0C", "humidity": "Moderate", "sunlight": "Full sun", "watering": "Deep watering every 7-10 days"}
+  },
+  "Orange___Haunglongbing_(Citrus_greening)": {
+    "description": "Citrus greening (HLB), caused by the bacterium Candidatus Liberibacter spp. and spread by Asian citrus psyllid, is the most destructive disease of citrus worldwide. There is currently no cure.",
+    "symptoms": ["Asymmetrical yellow blotchy mottle on leaves", "Misshapen, lopsided green fruit (does not colour properly)", "Bitter, salty fruit", "Twig dieback and tree decline"],
+    "treatment": ["No cure available", "Aggressively control psyllid vectors with insecticides", "Improve nutrition (foliar micronutrient sprays) to prolong tree productivity", "Remove and destroy heavily infected trees to reduce inoculum"],
+    "prevention": ["Plant only certified disease-free trees", "Monitor for and control Asian citrus psyllid", "Report suspect trees to local agricultural authorities"],
+    "severity_baseline": 90,
+    "progression": [{"stage": "Early", "timeline": "Months 1-6: blotchy mottle on individual branches"}, {"stage": "Mid", "timeline": "Years 1-2: spread throughout canopy, fruit drop"}, {"stage": "Late", "timeline": "Years 3+: dieback and tree death"}],
+    "environmentalFactors": {"temperature": "20-30\u00b0C favours psyllid", "humidity": "Variable", "sunlight": "Full sun standard for citrus", "watering": "Maintain good irrigation to support stressed trees"}
+  },
+  "Peach___Bacterial_spot": {
+    "description": "A bacterial disease (Xanthomonas arboricola pv. pruni) affecting peach leaves, twigs and fruit, especially in warm humid climates.",
+    "symptoms": ["Small, angular, water-soaked leaf spots that turn purple", "Spots drop out leaving 'shot-hole' appearance", "Sunken pits and cracks on fruit", "Premature defoliation"],
+    "treatment": ["Apply copper-based bactericides at petal fall and shuck split", "Continue applications every 7-10 days during wet weather"],
+    "prevention": ["Plant resistant varieties (e.g., Redhaven, Contender)", "Avoid overhead irrigation", "Prune for good air circulation", "Fertilize moderately - excess nitrogen worsens disease"],
+    "severity_baseline": 60,
+    "progression": [{"stage": "Early", "timeline": "Days 1-7: water-soaked spots"}, {"stage": "Mid", "timeline": "Weeks 2-3: shot-hole appearance"}, {"stage": "Late", "timeline": "Week 4+: defoliation, fruit lesions"}],
+    "environmentalFactors": {"temperature": "24-29\u00b0C", "humidity": "High during rain events", "sunlight": "Full sun aids drying", "watering": "Drip irrigation only"}
+  },
+  "Peach___healthy": {
+    "description": "The peach leaf appears healthy.",
+    "symptoms": [],
+    "treatment": ["No treatment required"],
+    "prevention": ["Annual pruning for shape and airflow", "Thin fruit to reduce branch breakage", "Mulch around base"],
+    "severity_baseline": 0,
+    "progression": [],
+    "environmentalFactors": {"temperature": "18-30\u00b0C", "humidity": "Moderate", "sunlight": "Full sun", "watering": "Deep watering weekly"}
+  },
+  "Pepper,_bell___Bacterial_spot": {
+    "description": "Bacterial spot (Xanthomonas spp.) is a serious disease of peppers in warm humid weather, causing leaf spots, defoliation, and fruit lesions.",
+    "symptoms": ["Small, dark, water-soaked leaf spots that become brown", "Yellow halos around lesions", "Lesions on fruit becoming raised and scabby", "Premature leaf drop reducing fruit quality"],
+    "treatment": ["Apply copper-based bactericides at first sign", "Combine copper with mancozeb for better effect", "Avoid handling plants when wet"],
+    "prevention": ["Use disease-free, treated seed", "Rotate with non-host crops for 2 years", "Avoid overhead watering", "Stake plants to keep foliage off the soil"],
+    "severity_baseline": 60,
+    "progression": [{"stage": "Early", "timeline": "Days 1-5: water-soaked spots"}, {"stage": "Mid", "timeline": "Weeks 1-2: yellow halos, leaf drop"}, {"stage": "Late", "timeline": "Week 3+: fruit lesions, sunscald"}],
+    "environmentalFactors": {"temperature": "24-30\u00b0C", "humidity": "High after rain", "sunlight": "Full sun (but defoliation causes sunscald on fruit)", "watering": "Drip at base; never overhead"}
+  },
+  "Pepper,_bell___healthy": {
+    "description": "The bell pepper leaf appears healthy.",
+    "symptoms": [],
+    "treatment": ["No treatment required"],
+    "prevention": ["Stake plants for airflow", "Mulch to retain moisture and prevent soil splash", "Rotate crops yearly"],
+    "severity_baseline": 0,
+    "progression": [],
+    "environmentalFactors": {"temperature": "21-29\u00b0C", "humidity": "Moderate", "sunlight": "Full sun (6+ hours)", "watering": "1-2 inches per week, consistent"}
+  },
+  "Potato___Early_blight": {
+    "description": "Early blight (Alternaria solani) is a common foliar disease of potato that produces concentric-ring leaf lesions. It usually starts on older leaves.",
+    "symptoms": ["Brown circular lesions with concentric rings (target spots)", "Yellowing around lesions", "Older leaves affected first", "Defoliation up the stem in heavy infections"],
+    "treatment": ["Apply fungicide (chlorothalonil, mancozeb) at first symptoms", "Repeat every 7-10 days in wet weather", "Remove severely affected leaves"],
+    "prevention": ["Rotate crops 2-3 years away from solanaceous plants", "Mulch to prevent soil splash onto leaves", "Avoid overhead irrigation", "Maintain plant vigor with balanced fertility"],
+    "severity_baseline": 55,
+    "progression": [{"stage": "Early", "timeline": "Days 1-7: small dark spots on lower leaves"}, {"stage": "Mid", "timeline": "Weeks 2-3: concentric rings expand"}, {"stage": "Late", "timeline": "Week 4+: defoliation, possible tuber lesions"}],
+    "environmentalFactors": {"temperature": "24-29\u00b0C", "humidity": "Moderate to high", "sunlight": "Full sun aids drying", "watering": "Drip irrigation; avoid wet foliage"}
+  },
+  "Potato___Late_blight": {
+    "description": "Late blight (Phytophthora infestans) is a devastating water mold disease responsible for the Irish Potato Famine. It can destroy a crop in days under cool, wet conditions.",
+    "symptoms": ["Pale-green water-soaked lesions on leaf margins", "Lesions rapidly turning brown to black", "White fuzzy sporulation on undersides in humid weather", "Foul-smelling tuber rot"],
+    "treatment": ["Apply protectant fungicide (chlorothalonil, mancozeb) preventively", "Switch to systemic fungicide (e.g., metalaxyl) once disease appears", "Destroy infected plants immediately to prevent spread"],
+    "prevention": ["Plant certified disease-free seed potatoes", "Avoid overhead irrigation", "Hill soil over tubers to protect from spores", "Destroy volunteer potatoes and cull piles"],
+    "severity_baseline": 90,
+    "progression": [{"stage": "Early", "timeline": "Days 1-3: pale lesions on leaf tips"}, {"stage": "Mid", "timeline": "Days 4-7: rapid expansion, white sporulation"}, {"stage": "Late", "timeline": "Week 2+: total foliage collapse, tuber rot"}],
+    "environmentalFactors": {"temperature": "10-20\u00b0C (cool)", "humidity": "Very high (>90%)", "sunlight": "Cloudy/foggy weather worsens", "watering": "Avoid any leaf wetness"}
+  },
+  "Potato___healthy": {
+    "description": "The potato leaf appears healthy.",
+    "symptoms": [],
+    "treatment": ["No treatment required"],
+    "prevention": ["Use certified seed potatoes", "Hill soil over developing tubers", "Rotate crops every 2-3 years"],
+    "severity_baseline": 0,
+    "progression": [],
+    "environmentalFactors": {"temperature": "15-21\u00b0C", "humidity": "Moderate", "sunlight": "Full sun", "watering": "1-2 inches per week, even moisture"}
+  },
+  "Raspberry___healthy": {
+    "description": "The raspberry leaf appears healthy.",
+    "symptoms": [],
+    "treatment": ["No treatment required"],
+    "prevention": ["Prune out floricanes after harvest", "Train canes on a trellis for airflow", "Mulch with straw"],
+    "severity_baseline": 0,
+    "progression": [],
+    "environmentalFactors": {"temperature": "16-24\u00b0C", "humidity": "Moderate", "sunlight": "Full sun", "watering": "1-2 inches weekly, drip preferred"}
+  },
+  "Soybean___healthy": {
+    "description": "The soybean leaf appears healthy.",
+    "symptoms": [],
+    "treatment": ["No treatment required"],
+    "prevention": ["Rotate with corn or small grains", "Use treated seed", "Scout fields weekly through reproductive stages"],
+    "severity_baseline": 0,
+    "progression": [],
+    "environmentalFactors": {"temperature": "20-30\u00b0C", "humidity": "Moderate", "sunlight": "Full sun", "watering": "Rainfed in most climates; supplement during pod fill"}
+  },
+  "Squash___Powdery_mildew": {
+    "description": "Powdery mildew (Podosphaera xanthii / Erysiphe cichoracearum) is the most common cucurbit foliar disease, producing white powdery growth on leaves and stems.",
+    "symptoms": ["White powdery patches on upper leaf surface", "Yellowing leaves that brown and die", "Stunted plant growth", "Reduced fruit yield and quality"],
+    "treatment": ["Apply potassium bicarbonate, sulfur, or neem oil at first signs", "Repeat every 7-10 days", "Remove most-affected leaves to slow spread"],
+    "prevention": ["Plant resistant varieties", "Space plants for good airflow", "Avoid overhead watering", "Control summer weeds that harbour the fungus"],
+    "severity_baseline": 50,
+    "progression": [{"stage": "Early", "timeline": "Days 1-7: small white spots on older leaves"}, {"stage": "Mid", "timeline": "Weeks 2-3: spreads across canopy"}, {"stage": "Late", "timeline": "Week 4+: defoliation, premature plant death"}],
+    "environmentalFactors": {"temperature": "20-27\u00b0C", "humidity": "Moderate (favours dry leaves with humid air)", "sunlight": "Full sun reduces severity", "watering": "Drip at base only"}
+  },
+  "Strawberry___Leaf_scorch": {
+    "description": "Leaf scorch (Diplocarpon earlianum) is a fungal disease of strawberry causing reddish-purple leaf spots that resemble scorching.",
+    "symptoms": ["Numerous small purple to reddish spots on leaves", "Leaves taking on a scorched, burned appearance", "Spots may merge into large blighted areas", "Reduced runner production and yield"],
+    "treatment": ["Apply captan or myclobutanil fungicide", "Begin applications at early bloom and continue at 7-10 day intervals", "Remove old infected leaves after harvest"],
+    "prevention": ["Plant resistant varieties (e.g., Allstar, Earliglow)", "Renovate beds annually after harvest", "Avoid overhead irrigation", "Provide good drainage"],
+    "severity_baseline": 50,
+    "progression": [{"stage": "Early", "timeline": "Days 1-10: tiny purple spots"}, {"stage": "Mid", "timeline": "Weeks 2-3: spots merge"}, {"stage": "Late", "timeline": "Week 4+: leaves brown and curl"}],
+    "environmentalFactors": {"temperature": "18-25\u00b0C", "humidity": "High", "sunlight": "Full sun", "watering": "Drip irrigation; mulch with straw"}
+  },
+  "Strawberry___healthy": {
+    "description": "The strawberry leaf appears healthy.",
+    "symptoms": [],
+    "treatment": ["No treatment required"],
+    "prevention": ["Renovate beds after harvest", "Mulch with straw to keep berries clean", "Replace plants every 3-4 years"],
+    "severity_baseline": 0,
+    "progression": [],
+    "environmentalFactors": {"temperature": "15-26\u00b0C", "humidity": "Moderate", "sunlight": "Full sun (6+ hours)", "watering": "1-2 inches weekly, drip preferred"}
+  },
+  "Tomato___Bacterial_spot": {
+    "description": "Bacterial spot (Xanthomonas spp.) of tomato causes dark leaf spots, defoliation, and fruit lesions, particularly in warm wet weather.",
+    "symptoms": ["Small dark water-soaked leaf spots, often with yellow halo", "Lesions on stems and fruit", "Fruit lesions becoming raised and scabby", "Defoliation reducing fruit quality"],
+    "treatment": ["Apply copper-based bactericides at first sign", "Combine copper with mancozeb for better suppression", "Avoid working in fields when wet"],
+    "prevention": ["Use certified disease-free seed", "Rotate with non-solanaceous crops for 2-3 years", "Stake plants and mulch to reduce splash", "Avoid overhead irrigation"],
+    "severity_baseline": 65,
+    "progression": [{"stage": "Early", "timeline": "Days 1-5: small water-soaked spots"}, {"stage": "Mid", "timeline": "Weeks 1-2: defoliation"}, {"stage": "Late", "timeline": "Week 3+: fruit lesions, sunscald"}],
+    "environmentalFactors": {"temperature": "24-30\u00b0C", "humidity": "High", "sunlight": "Full sun (sunscald risk on defoliated plants)", "watering": "Drip only; never overhead"}
+  },
+  "Tomato___Early_blight": {
+    "description": "Early blight (Alternaria solani / A. tomatophila) is a very common tomato disease causing concentric-ring lesions on lower leaves first.",
+    "symptoms": ["Brown circular lesions with concentric rings (target spots)", "Yellowing around lesions", "Lower leaves affected first", "Stem cankers and fruit lesions near the calyx"],
+    "treatment": ["Apply fungicide (chlorothalonil, mancozeb) at first symptoms", "Repeat every 7-10 days in wet weather", "Remove and dispose of severely affected lower leaves"],
+    "prevention": ["Mulch to prevent soil splash", "Stake or cage plants for airflow", "Rotate crops 2-3 years", "Avoid overhead watering"],
+    "severity_baseline": 55,
+    "progression": [{"stage": "Early", "timeline": "Days 1-7: small spots on lower leaves"}, {"stage": "Mid", "timeline": "Weeks 2-3: concentric rings expand"}, {"stage": "Late", "timeline": "Week 4+: defoliation, fruit lesions"}],
+    "environmentalFactors": {"temperature": "24-29\u00b0C", "humidity": "Moderate to high", "sunlight": "Full sun", "watering": "Drip at base"}
+  },
+  "Tomato___Late_blight": {
+    "description": "Late blight (Phytophthora infestans) is a destructive water-mold disease that can wipe out a tomato planting in days under cool wet conditions.",
+    "symptoms": ["Pale water-soaked lesions on leaf margins", "Rapid expansion to brown-black necrosis", "White fuzzy growth on leaf undersides in humid weather", "Greasy-looking brown lesions on fruit"],
+    "treatment": ["Apply protectant fungicide (chlorothalonil, mancozeb) preventively", "Switch to systemic (metalaxyl) once disease appears", "Destroy infected plants immediately"],
+    "prevention": ["Plant resistant varieties (e.g., Mountain Magic, Defiant)", "Avoid overhead irrigation", "Increase plant spacing for airflow", "Destroy volunteer tomatoes/potatoes"],
+    "severity_baseline": 90,
+    "progression": [{"stage": "Early", "timeline": "Days 1-3: pale lesions on leaf tips"}, {"stage": "Mid", "timeline": "Days 4-7: rapid expansion, white sporulation"}, {"stage": "Late", "timeline": "Week 2+: total plant collapse"}],
+    "environmentalFactors": {"temperature": "10-20\u00b0C (cool)", "humidity": "Very high (>90%)", "sunlight": "Cloudy/foggy weather worsens", "watering": "Avoid any leaf wetness"}
+  },
+  "Tomato___Leaf_Mold": {
+    "description": "Leaf mold (Passalora fulva, formerly Cladosporium) is a fungal disease primarily of greenhouse tomatoes, also field tomatoes in humid weather.",
+    "symptoms": ["Pale yellow spots on upper leaf surface", "Olive-green to grayish-purple velvety mold on leaf underside", "Leaves yellow, wither, and drop", "Reduced yield"],
+    "treatment": ["Apply chlorothalonil or copper-based fungicide", "Improve greenhouse ventilation", "Reduce humidity below 85%"],
+    "prevention": ["Use resistant cultivars (e.g., Cf-9 gene varieties)", "Provide good ventilation in greenhouses", "Avoid wetting foliage", "Remove crop debris"],
+    "severity_baseline": 50,
+    "progression": [{"stage": "Early", "timeline": "Days 1-7: pale yellow upper spots"}, {"stage": "Mid", "timeline": "Weeks 2-3: olive mold underneath"}, {"stage": "Late", "timeline": "Week 4+: defoliation"}],
+    "environmentalFactors": {"temperature": "22-24\u00b0C", "humidity": "High (>85%)", "sunlight": "Full sun preferred", "watering": "Drip; never wet foliage"}
+  },
+  "Tomato___Septoria_leaf_spot": {
+    "description": "Septoria leaf spot (Septoria lycopersici) produces many small circular leaf spots and is one of the most damaging tomato foliar diseases in humid regions.",
+    "symptoms": ["Many small (1-3 mm) circular spots with dark borders and gray centers", "Tiny black fruiting bodies (pycnidia) within spots", "Lower leaves affected first", "Heavy defoliation"],
+    "treatment": ["Apply chlorothalonil or copper fungicide at first signs", "Repeat every 7-10 days during wet weather", "Remove infected lower leaves"],
+    "prevention": ["Mulch to prevent soil splash", "Stake plants and maintain wide spacing", "Rotate crops 2-3 years", "Eliminate solanaceous weeds"],
+    "severity_baseline": 60,
+    "progression": [{"stage": "Early", "timeline": "Days 1-7: small circular spots on lower leaves"}, {"stage": "Mid", "timeline": "Weeks 2-3: spreads upward"}, {"stage": "Late", "timeline": "Week 4+: severe defoliation"}],
+    "environmentalFactors": {"temperature": "20-25\u00b0C", "humidity": "High", "sunlight": "Full sun", "watering": "Drip irrigation"}
+  },
+  "Tomato___Spider_mites Two-spotted_spider_mite": {
+    "description": "The two-spotted spider mite (Tetranychus urticae) is a tiny arachnid pest that feeds on leaf undersides, causing stippling and webbing.",
+    "symptoms": ["Tiny yellow or white stippling on upper leaf surface", "Fine webbing on leaf undersides and between leaves", "Bronzing and drying of leaves", "Visible tiny mites on the underside of leaves"],
+    "treatment": ["Spray plants forcefully with water to dislodge mites", "Apply insecticidal soap or horticultural oil", "Use predatory mites (Phytoseiulus persimilis) in greenhouses", "Avoid broad-spectrum insecticides that kill natural predators"],
+    "prevention": ["Maintain adequate humidity (mites prefer dry, dusty conditions)", "Avoid water stress", "Encourage natural predators by minimizing pesticide use", "Inspect new plants carefully"],
+    "severity_baseline": 55,
+    "progression": [{"stage": "Early", "timeline": "Days 1-7: small stippling on leaves"}, {"stage": "Mid", "timeline": "Weeks 2-3: webbing visible"}, {"stage": "Late", "timeline": "Week 4+: leaves bronze and die"}],
+    "environmentalFactors": {"temperature": "27-32\u00b0C (hot, dry favours mites)", "humidity": "Low (mites thrive in dry air)", "sunlight": "Full sun is fine; mite damage worse on stressed plants", "watering": "Maintain even moisture"}
+  },
+  "Tomato___Target_Spot": {
+    "description": "Target spot (Corynespora cassiicola) is a fungal disease producing target-like leaf and fruit lesions in warm humid climates.",
+    "symptoms": ["Brown circular leaf spots with concentric rings", "Lesions on stems and fruit", "Lesions may merge causing leaf blight", "Sunken fruit lesions reducing market value"],
+    "treatment": ["Apply chlorothalonil or mancozeb fungicide", "Repeat every 7-10 days in wet weather", "Remove severely affected leaves"],
+    "prevention": ["Crop rotation away from tomato/cucurbit/papaya for 2 years", "Avoid overhead irrigation", "Stake plants for airflow", "Eliminate volunteer tomatoes"],
+    "severity_baseline": 55,
+    "progression": [{"stage": "Early", "timeline": "Days 1-7: small brown spots"}, {"stage": "Mid", "timeline": "Weeks 2-3: target rings form"}, {"stage": "Late", "timeline": "Week 4+: blighting, fruit lesions"}],
+    "environmentalFactors": {"temperature": "24-28\u00b0C", "humidity": "High", "sunlight": "Full sun", "watering": "Drip only"}
+  },
+  "Tomato___Tomato_Yellow_Leaf_Curl_Virus": {
+    "description": "Tomato yellow leaf curl virus (TYLCV) is a begomovirus transmitted by silverleaf whitefly. It causes severe stunting and yield loss; there is no cure.",
+    "symptoms": ["Upward curling and yellowing of leaf margins", "Severe stunting", "Reduced leaf size", "Flower drop, sterility, and yield collapse"],
+    "treatment": ["No cure available", "Aggressively manage whitefly vectors with insecticides or yellow sticky traps", "Remove and destroy infected plants to prevent spread"],
+    "prevention": ["Plant TYLCV-resistant cultivars (Ty-1, Ty-3 genes)", "Use UV-reflective mulches to repel whiteflies", "Use insect-proof screens in greenhouses", "Eliminate weed reservoirs"],
+    "severity_baseline": 90,
+    "progression": [{"stage": "Early", "timeline": "Weeks 1-2: leaf cupping and yellowing"}, {"stage": "Mid", "timeline": "Weeks 3-4: severe stunting"}, {"stage": "Late", "timeline": "Week 5+: flower drop and yield loss"}],
+    "environmentalFactors": {"temperature": "25-32\u00b0C (favours whitefly)", "humidity": "Variable", "sunlight": "Full sun", "watering": "Standard tomato watering"}
+  },
+  "Tomato___Tomato_mosaic_virus": {
+    "description": "Tomato mosaic virus (ToMV) is a tobamovirus producing mottled foliage and stunting. Highly stable and easily spread by handling.",
+    "symptoms": ["Mottled light and dark green leaves", "Distorted, fern-like leaf shape", "Stunted growth", "Internal browning and reduced fruit quality"],
+    "treatment": ["No cure available", "Remove and destroy infected plants", "Disinfect tools, hands, and stakes after handling suspect plants"],
+    "prevention": ["Plant resistant varieties (Tm-2 gene)", "Wash hands with soap before handling plants", "Avoid using tobacco products near tomatoes (TMV reservoir)", "Use clean seed and transplants"],
+    "severity_baseline": 70,
+    "progression": [{"stage": "Early", "timeline": "Weeks 1-2: light/dark mottling"}, {"stage": "Mid", "timeline": "Weeks 3-4: leaf distortion"}, {"stage": "Late", "timeline": "Week 5+: yield loss"}],
+    "environmentalFactors": {"temperature": "20-30\u00b0C", "humidity": "Moderate", "sunlight": "Full sun", "watering": "Standard"}
+  },
+  "Tomato___healthy": {
+    "description": "The tomato leaf appears healthy.",
+    "symptoms": [],
+    "treatment": ["No treatment required"],
+    "prevention": ["Stake or cage plants", "Mulch to prevent soil splash", "Rotate crops yearly", "Water at base, not overhead"],
+    "severity_baseline": 0,
+    "progression": [],
+    "environmentalFactors": {"temperature": "21-29\u00b0C", "humidity": "Moderate", "sunlight": "Full sun (6-8 hours)", "watering": "1-2 inches per week, deep watering"}
+  }
+}
